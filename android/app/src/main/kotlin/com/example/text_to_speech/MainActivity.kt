@@ -1,6 +1,6 @@
-package com.example.text_to_speech
+package com.yourpackage
 
 import io.flutter.embedding.android.FlutterActivity
 
-class MainActivity: FlutterActivity() {
+class MainActivity : FlutterActivity() {
 }
