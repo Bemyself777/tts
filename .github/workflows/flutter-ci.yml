@@ -10,31 +10,28 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04  # 指定 Ubuntu 版本
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # 确保 checkout 也是最新的
 
       - name: Sleep for 10 seconds
-        run: sleep 10s
+        run: sleep 10s  # 避免 GitHub Actions API 限制问题
 
       - name: Setup Flutter
-        uses: subosito/flutter-action@v3
+        uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.29.1'
 
       - name: Install Dependencies
         run: flutter pub get
 
-      - name: Clean Flutter Cache
-        run: flutter clean
-
       - name: Build APK
         run: flutter build apk --release
 
       - name: Upload APK
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4  # 用 v4
         with:
           name: release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
