@@ -1,3 +1,6 @@
+      - name: Sleep for 10 seconds
+        run: sleep 10s
+
 name: Flutter Build APK
 
 on:
