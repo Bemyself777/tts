@@ -1,0 +1,2 @@
+rootProject.name = "text_to_speech"
+include ':app'
