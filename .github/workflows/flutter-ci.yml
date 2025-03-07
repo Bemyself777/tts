@@ -16,8 +16,8 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4  # 确保 checkout 也是最新的
 
-      - name: Sleep for 10 seconds
-        run: sleep 10s  # 避免 GitHub Actions API 限制问题
+      - name: Debug GitHub API
+        run: curl -I https://api.github.com  # 确保 GitHub API 可用
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -31,7 +31,7 @@ jobs:
         run: flutter build apk --release
 
       - name: Upload APK
-        uses: actions/upload-artifact@v4  # 用 v4
+        uses: actions/upload-artifact@v4  # 确保使用最新版本
         with:
           name: release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
